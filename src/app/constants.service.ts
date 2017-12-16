@@ -32,7 +32,8 @@ export class ConstantsService {
         'image': 'contact-bg.jpg',
         'title': 'Contact Me',
         'description': 'Have questions? I have answers.'
-      }
+      },
+      'footerText': 'Copyright © Your Website 2017'
     }
     return this.constants
   }
