@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private db: AngularFireDatabase) { }
 
   ngOnInit() {
-    this.coursesObservable = this.getCourses('/ng5-blog');
+    this.coursesObservable = this.getCourses('/items');
     console.log(this.coursesObservable);
   }
 
