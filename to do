@@ -1,15 +1,16 @@
 ng g m route --routing --module=app.module
-ng generate service message --module=app
+ng g s constants --module=app.module
 
-# I want a function which get hit on every url change
-# How to define constant 
+git config credential.helper store // store git logins
+
+# I want a function which get hit on every url change : done
+# How to define constant : done
 
 
-
-                ########### Error #############
+######################################################## Error ############################################################
 
 1. Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option to remove this warning.                
     Ans: have to add typescript.tsdk to my .vscode/settings.json:
         "typescript.tsdk": "node_modules/typescript/lib"
 2. [ts] Generic type 'Array<T>' requires 1 type argument(s). interface Array<T> const Array: ArrayConstructor
-    Ans: we must define type of array like string etc
+    Ans: we must define type of array like string etc array<string>
