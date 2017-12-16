@@ -14,3 +14,7 @@ git config credential.helper store // store git logins
         "typescript.tsdk": "node_modules/typescript/lib"
 2. [ts] Generic type 'Array<T>' requires 1 type argument(s). interface Array<T> const Array: ArrayConstructor
     Ans: we must define type of array like string etc array<string>
+
+
+
+    https://coursetro.com/posts/code/54/Angular-4-Firebase-Tutorial:-Make-a-Simple-Angular-4-App
