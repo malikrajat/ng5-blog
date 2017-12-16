@@ -11,8 +11,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SamplePostComponent } from './sample-post/sample-post.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { ConstantsService } from './constants.service';
 
-// routing start 
+// routing start
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about-us', component: AboutUsComponent},
@@ -21,7 +22,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
-// routing ends 
+// routing ends
 
 @NgModule({
   declarations: [
@@ -35,10 +36,12 @@ const appRoutes: Routes = [
     ContactUsComponent
   ],
   imports: [
-    BrowserModule,    
-    RouterModule.forRoot(appRoutes, { enableTracing: true })
+    BrowserModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: false })
   ],
-  providers: [],
+  providers: [
+    ConstantsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
