@@ -1,11 +1,12 @@
-ng g m route --routing --module=app.module
+flatng g m route --routing --module=app.module
 ng g s constants --module=app.module
+ng g p home/truncate --flat --module=app.module
 
 git config credential.helper store // store git logins
 
 # I want a function which get hit on every url change : done
 # How to define constant : done
-
+# Do not import pipes in your component import only in app module
 
 ######################################################## Error ############################################################
 

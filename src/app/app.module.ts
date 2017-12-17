@@ -18,6 +18,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { SamplePostComponent } from './sample-post/sample-post.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ConstantsService } from './constants.service';
+import { TruncatePipe } from './home/truncate.pipe';
 
 // routing start
 const appRoutes: Routes = [
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     AboutUsComponent,
     SamplePostComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    TruncatePipe    
   ],
   imports: [
     BrowserModule,
