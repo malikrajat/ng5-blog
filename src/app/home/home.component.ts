@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+
+import { CommonService } from './../services/common.service';
 
 @Component({
   selector: 'app-home',  
@@ -8,15 +8,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomeComponent implements OnInit {
 
-  coursesObservable: Observable<any[]>;
-  constructor(private db: AngularFireDatabase) { }
+  coursesObservable: any;
+  constructor(private commonService: CommonService ) { }
 
   ngOnInit() {
-    this.coursesObservable = this.getCourses('/blogs');    
-  }
-
-  getCourses(listPath): Observable<any[]> {
-    return this.db.list(listPath).valueChanges();
+    this.coursesObservable = this.commonService.getCourses('/blogs');    
   }
 
 }
