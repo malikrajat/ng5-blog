@@ -12,7 +12,16 @@ export class HomeComponent implements OnInit {
   constructor(private commonService: CommonService ) { }
 
   ngOnInit() {
-    this.coursesObservable = this.commonService.getCourses('/blogs');    
+    this.coursesObservable = this.commonService.getCourses('/blogs');
+    this.commonService.getUserListing().subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        // error logic goes here
+      }
+    )
   }
+
 
 }
