@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from './../services/common.service';
 
 @Component({
-  selector: 'app-home',  
+  selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
@@ -21,6 +21,14 @@ export class HomeComponent implements OnInit {
         // error logic goes here
       }
     )
+  }
+
+  onScrollDown () {
+      console.log('scrolled down!!')
+  }
+
+  onScrollUp () {
+    console.log('scrolled up!!')
   }
 
 
