@@ -7,7 +7,8 @@ import { CommonService } from './../services/common.service';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-
+  
+  p: number = 1;
   coursesObservable: any;
   constructor(private commonService: CommonService ) { }
 

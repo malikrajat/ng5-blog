@@ -8,7 +8,7 @@ infinite-scroll
 >
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-      <div *ngFor="let item of coursesObservable | async">        
+      <div *ngFor="let item of coursesObservable | async | paginate: { itemsPerPage: 5, currentPage: p }">        
         <div class="post-preview">
           <a href="javascript:void(0);">
             <h2 class="post-title">
@@ -24,10 +24,7 @@ infinite-scroll
         </div>
         <hr>
       </div>
-      <!-- Pager -->
-      <div class="clearfix">
-        <a class="btn btn-primary float-right" href="javascript:void(0);">Older Posts &rarr;</a>
-      </div>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>
