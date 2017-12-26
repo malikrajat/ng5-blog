@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ConstantsService {
-  constants: object;
+  constants: Object;
   constructor() { 
     this.initConstant();
   }
   initConstant() {
-    this.constants = {
+    this.constants = {    
       '/': {
         'image': 'home-bg.jpg',
         'title': 'Angular Blog',
@@ -37,5 +37,4 @@ export class ConstantsService {
     }
     return this.constants
   }
-
 }

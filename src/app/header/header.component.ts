@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import 'rxjs/add/operator/pairwise';
 import { Router, NavigationEnd } from '@angular/router';
 import { ConstantsService } from './../constants.service';
@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit{
   @Input('pagelocal') whatParentSend: string;
   // Here we have pagelocal name set in html page but in case we do pt want to user that name, we can create alies for that name like here os what parent is sending
   @Output() sendToParent = new EventEmitter();
+  // when you want to send data from chield to parent 
+  @ViewChild('headerText') myHeaderText;
 
   title: string;
   description: string;
@@ -29,6 +31,7 @@ export class HeaderComponent implements OnInit{
         this.description = (description)? description: 'Start you angualr blog';  
       }
     });
+
   }
 
   ngOnInit() {
@@ -36,6 +39,11 @@ export class HeaderComponent implements OnInit{
     //Add 'implements OnInit' to the class.
     console.log(this.whatParentSend,'from input view');   
     this.sendToParent.emit('Hello from chield');
+    setInterval(this.getViewChield(), 2000)
+  }
+  getViewChield() {
+    let viewValue = this.myHeaderText.nativeElement;
+    console.log(viewValue);
   }
   getUrl(): string {
     return 'url(assets/img/' + this.headerImage + ')';
