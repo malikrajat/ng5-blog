@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import 'rxjs/add/operator/pairwise';
 import { Router, NavigationEnd } from '@angular/router';
 import { ConstantsService } from './../constants.service';
@@ -9,7 +9,10 @@ import { ConstantsService } from './../constants.service';
 })
 export class HeaderComponent implements OnInit{
   
-  @Input() pagelocal: string;
+  @Input('pagelocal') whatParentSend: string;
+  // Here we have pagelocal name set in html page but in case we do pt want to user that name, we can create alies for that name like here os what parent is sending
+  @Output() sendToParent = new EventEmitter();
+
   title: string;
   description: string;
   headerImage: string;
@@ -31,7 +34,8 @@ export class HeaderComponent implements OnInit{
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log(this.pagelocal,'from input view');   
+    console.log(this.whatParentSend,'from input view');   
+    this.sendToParent.emit('Hello from chield');
   }
   getUrl(): string {
     return 'url(assets/img/' + this.headerImage + ')';

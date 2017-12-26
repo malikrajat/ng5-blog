@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   pageTitle = 'Home page from @input';
+
+  sendfromChield(event) {
+    console.log(event);
+  }
 }
