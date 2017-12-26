@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import 'rxjs/add/operator/pairwise';
 import { Router, NavigationEnd } from '@angular/router';
 import { ConstantsService } from './../constants.service';
@@ -7,13 +7,13 @@ import { ConstantsService } from './../constants.service';
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit, AfterViewInit {
   
   @Input('pagelocal') whatParentSend: string;
   // Here we have pagelocal name set in html page but in case we do pt want to user that name, we can create alies for that name like here os what parent is sending
-  @Output() sendToParent = new EventEmitter();
+  @Output() sendToParent = new EventEmitter<string>();
   // when you want to send data from chield to parent 
-  @ViewChild('headerText') myHeaderText;
+  @ViewChild('headerText') myHeaderText: ElementRef;
 
   title: string;
   description: string;
@@ -39,7 +39,11 @@ export class HeaderComponent implements OnInit{
     //Add 'implements OnInit' to the class.
     console.log(this.whatParentSend,'from input view');   
     this.sendToParent.emit('Hello from chield');
-    setInterval(this.getViewChield(), 2000)
+  }
+  ngAfterViewInit() {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.getViewChield();
   }
   getViewChield() {
     let viewValue = this.myHeaderText.nativeElement;
